@@ -1,0 +1,80 @@
+  body{
+      margin: 0;
+      font-family :'Alegreya';
+
+  }
+ h1{
+    border-width: thick;
+    border-color: black;
+    color: white;
+    text-shadow: 4px 4px 16px black;
+  }
+
+ h2{
+    border-width: thick;
+    border-color: black;
+    color: white;
+    text-shadow: 10px 10px 40px white;
+  }
+
+ h4{
+     border-width: thick;
+    border-color: black;
+    color: black;
+    text-align: center;
+    text-shadow: 4px 4px 16px white;
+ }
+
+.form{
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    text-align: Left;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:20px;
+  }
+
+  input[type=text] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+select {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+  }
+
+  button {
+    font-family :'Alegreya';
+    font-weight: 600;
+    width: 30%;
+    background: rgb(31, 30, 30);
+    color:white;
+    font-size: 20px;
+    font-width: thick;
+    padding: 15px 15px;
+    margin: 8px 10px;
+    border: none;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    border-shadow: 4px 4px 16px white;
+  }
+
+  input[type=submit]:hover {
+    background-color: #37853b;
+  }
+  *{
+  color:black;
+  }
