@@ -49,15 +49,17 @@ h4{
     border-radius: 10px;
     box-sizing: border-box;
   }
+
 select {
     width: 100%;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #f1f1f1;
-  }
+ }
 
-  button {
+
+button {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     width: 30%;
@@ -74,9 +76,10 @@ select {
     border-shadow: 4px 4px 16px white;
   }
 
-  input[type=submit]:hover {
+   input[type=submit]:hover {
     background-color: #37853b;
   }
-  *{
+  
+*{
   color:black;
   }
