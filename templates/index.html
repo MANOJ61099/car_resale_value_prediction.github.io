@@ -1,149 +1,171 @@
 <!DOCTYPE html>
-<!--=== Coding by CodingLab | www.codinglabweb.com === -->
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="static\css\style.css">
-     
-    <!----===== Iconscout CSS ===== -->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<html lang="en" dir="ltr">
 
-    <!--<title>Responsive Regisration Form </title>--> 
+<head>
+<link rel="stylesheet" href="static\css\style.css">
+<title>Car resale value</title>
+<meta charset="UTF-8">
 </head>
 
-<body>
-    <div class="container">
-        <header>GET THE ACCURATE RESALE VALUE OF YOUR CAR</header>
+<body style="background-color:linear-gradient(135deg, #71b7e6, #9b59b6);">
+	<section class="form">
+	<form method="post" accept-charset="utf-8" name="Modelform">
+    <table border="0" align="center">
+    <tbody>
+		<h1>GET THE ACCURATE RESALE VALUE OF YOUR CAR</h1>
+			<h4>Please Fill The Following Details of Your Car</h4>
 
-        <form method="post" accept-charset="utf-8" name="Modelform">
+            <tr>
+            <td><label><b>Select the Brand: </b> </label><br></td>
+            <td>
+            <select class="selectpicker form-control" id="company" name="company" required="1" onchange="load_car_models(this.id,'car_models')">
+                {% for company in companies %}
+                <option value="{{ company }}">{{ company }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-            <div class="form first">
-                <div class="details personal">
-                    <span class="title">Car Features</span>
 
-                    <div class="fields">
+            <tr>
+            <td><label><b>Select the Model:</b> </label><br></td>
+            <td>
+            <select class="selectpicker form-control" id="car_models" name="car_models" required="1"> </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-                        <div class="input-field">
-                            <label>Select the Brand:</label>
-                            <select class="selectpicker form-control" id="company" name="company" required="1" onchange="load_car_models(this.id,'car_models')">
-                                {% for company in companies %}
-                                <option value="{{ company }}">{{ company }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                        <div class="input-field">
-                            <label>Select the Model:</label>
-                            <select class="selectpicker form-control" id="car_models" name="car_models" required="1"> </select>
-                        </div>
+            <tr>
+            <td><label><b>Select the VehicleType:</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="vehicle_type" name="vehicle_type" required="1">
+                {% for vehicle_type in vehicle_types %}
+                <option value="{{ vehicle_type }}">{{ vehicle_type }}</option>
+                {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-                        <div class="input-field">
-                            <label>Select the VehicleType:</label>
-                            <select class="selectpicker form-control" id="vehicle_type" name="vehicle_type" required="1">
-                                {% for vehicle_type in vehicle_types %}
-                                <option value="{{ vehicle_type }}">{{ vehicle_type }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                        <div class="input-field">
-                            <label>Select the Gear Type:</label>
-                            <select class="selectpicker form-control" id="gear" name="gear" required="1">
-                                {% for gear in gears %}
-                                <option value="{{ gear }}">{{ gear }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
+            <tr>
+            <td><label><b>Select Year of Purchase:</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="year" name="year" required="1">
+                    {% for year in years %}
+                    <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-                        <div class="input-field">
-                            <label>Select the Fuel Type:</label>
-                            <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
-                                {% for fuel in fuel_types %}
-                                <option value="{{ fuel }}">{{ fuel }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                        <div class="input-field">
-                            <label>Power of Car in PS:</label>
-                            <input type="number" class="form-control" id="ps" name="ps" placeholder="Enter the Number Power of Car in PS, Not greater than 2000">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="details ID">
-                    <span class="title">Usage Details</span>
+            <tr>
+            <td><label><b>Select Month of Purchase:</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="month" name="month" required="1">
+                    {% for month in months %}
+                    <option value="{{ month }}">{{ month }}</option>
+                    {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-                    <div class="fields">
-                        <div class="input-field">
-                            <label>Kilometres Driven</label>
-                            <input type="number" class="form-control" id="kilo_driven" name="kilo_driven" placeholder="Enter the Number Power of Car in PS, Not greater than 2000">
-                        </div>
 
-                        <div class="input-field">
-                            <label>Damaged or Repaired</label>
-                            <select class="selectpicker form-control" id="damaged" name="damaged" required="1">
-                                {% for damaged in damages %}
-                                <option value="{{ damaged }}">{{ damaged }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
 
-                        <div class="input-field">
-                            <label>Manufactured Month</label>
-                            <select class="selectpicker form-control" id="month" name="month" required="1">
-                                {% for month in months %}
-                                <option value="{{ month }}">{{ month }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
+            <tr>
+            <td><label><b>Select the Gear Type:</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="gear" name="gear" required="1">
+                    {% for gear in gears %}
+                    <option value="{{ gear }}">{{ gear }}</option>
+                    {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
 
-                        <div class="input-field">
-                            <label>Manufactured Year</label>
-                            <select class="selectpicker form-control" id="year" name="year" required="1">
-                                {% for year in years %}
-                                <option value="{{ year }}">{{ year }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
 
-                    <button  class="btn btn-primary form-control" onclick="send_data()" >PREDICT</button>
-                    <div>
 
-                    </div>
-                </div>
-            </div>
-        </form>
-            <div class="col-12" style="text-align: center">
-                <h1 style="color:#008000"><span id="prediction"></span></h1>
-            </div>
+            <tr>
+            <td><label><b>Select the Fuel Type:</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
+                    {% for fuel in fuel_types %}
+                    <option value="{{ fuel }}">{{ fuel }}</option>
+                    {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
+
+
+
+            <tr>
+            <td><label><b>Power of Car in PS:</b> </label><br></td>
+            <td>
+                <input type="text" class="form-control" id="ps" name="ps" placeholder="Enter the Number Power of Car in PS:">
+            <br>
+            <br>
+            </td>
+            </tr>
+
+
+
+            <tr>
+            <td><label><b>Kilometres Driven:</b> </label><br></td>
+            <td>
+                <input type="text" class="form-control" id="kilo_driven" name="kilo_driven" placeholder="Enter the kilometres driven ">
+            <br>
+            <br>
+            </td>
+            </tr>
+
+
+            <tr>
+            <td><label><b>Car Status  :</b> </label><br></td>
+            <td>
+                <select class="selectpicker form-control" id="damaged" name="damaged" required="1">
+                    {% for damaged in damages %}
+                        <option value="{{ damaged }}">{{ damaged }}</option>
+                    {% endfor %}
+                </select>
+            <br>
+            <br>
+            </td>
+            </tr>
+
+
+
+
+
+    </tbody>
+    </table>
+
+    </form>
+
+<button  class="btn btn-primary form-control" onclick="send_data()" >PREDICT</button>
+<div class="row">
+    <div class="col-12" style="text-align: center">
+        <h1><span id="prediction"></span></h1>
     </div>
+</div>
+
+</section>
 
 
-<script>
-const form = document.querySelector("form"),
-        nextBtn = form.querySelector(".nextBtn"),
-        backBtn = form.querySelector(".backBtn"),
-        allInput = form.querySelectorAll(".first input");
-
-
-nextBtn.addEventListener("click", ()=> {
-    allInput.forEach(input => {
-        if(input.value != ""){
-            form.classList.add('secActive');
-        }else{
-            form.classList.remove('secActive');
-        }
-    })
-})
-
-backBtn.addEventListener("click", () => form.classList.remove('secActive'));
-</script>
 
 
 
